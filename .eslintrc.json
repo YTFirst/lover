@@ -1,0 +1,100 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "globals": {
+    "App": "writable",
+    "SecurityUtils": "readonly",
+    "llmService": "writable",
+    "getCharacterImage": "readonly",
+    "getCharacterPreview": "readonly",
+    "getCharacterList": "readonly",
+    "getEmotionList": "readonly",
+    "sendMessage": "writable",
+    "closeMemoryDialog": "writable",
+    "initSessions": "writable",
+    "checkFirstLaunch": "writable",
+    "checkForUpdates": "writable",
+    "renderSessionList": "writable",
+    "renderMemoryList": "writable",
+    "renderAgentList": "writable",
+    "updateModelList": "writable",
+    "updateChatTitle": "writable",
+    "addWelcomeMessage": "writable",
+    "checkAndShowGuide": "writable",
+    "saveCurrentSession": "writable",
+    "renderMessageList": "writable",
+    "setCharacterAnimation": "writable",
+    "processMessageForReminder": "writable"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      4
+    ],
+    "linebreak-style": [
+      "off"
+    ],
+    "quotes": [
+      "warn",
+      "single",
+      { "avoidEscape": true }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "warn"
+    ],
+    "no-console": [
+      "off"
+    ],
+    "no-debugger": [
+      "warn"
+    ],
+    "prefer-const": [
+      "warn"
+    ],
+    "no-var": [
+      "off"
+    ],
+    "no-prototype-builtins": [
+      "warn"
+    ],
+    "no-useless-escape": [
+      "warn"
+    ],
+    "no-redeclare": [
+      "warn"
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/tests/**/*.js", "**/*.test.js", "**/setup.js"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "indent": ["error", 2]
+      },
+      "globals": {
+        "vi": "readonly",
+        "describe": "readonly",
+        "it": "readonly",
+        "expect": "readonly",
+        "beforeEach": "readonly",
+        "afterEach": "readonly"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "electronic-girlfriend-prototype",
+  "version": "1.0.0",
+  "description": "电子女友 原型服务器",
+  "main": "../backend/server.js",
+  "scripts": {
+    "start": "node ../backend/server.js",
+    "dev": "node ../backend/server.js",
+    "test": "vitest --config ./vitest.config.ts",
+    "test:run": "vitest run --config ./vitest.config.ts",
+    "test:coverage": "vitest run --config ./vitest.config.ts --coverage",
+    "lint": "eslint ../frontend ../backend --ext .js",
+    "lint:fix": "eslint ../frontend ../backend --ext .js --fix"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "jsdom": "^24.0.0",
+    "eslint": "^8.57.0"
+  },
+  "keywords": [
+    "ai",
+    "chatbot",
+    "virtual-girlfriend"
+  ],
+  "author": "",
+  "license": "MIT"
+}

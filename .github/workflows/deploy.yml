@@ -1,0 +1,73 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: []
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        cache-dependency-path: lib/package-lock.json
+
+    - name: Install dependencies
+      run: cd lib && npm install
+
+    - name: Build project
+      run: cd lib && npm run build
+
+    - name: Prepare deployment package
+      run: |
+        mkdir -p deploy
+        cp -r backend deploy/
+        cp -r frontend deploy/
+        cp -r Agent deploy/
+        cp -r config deploy/
+        cp -r lib deploy/
+        cp tsconfig.json deploy/ 2>/dev/null || true
+
+    - name: Upload deployment artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: deployment-package
+        path: deploy/
+        retention-days: 30
+
+    # Uncomment and configure the following steps for your deployment target
+    # Example: Deploy to GitHub Pages (for frontend only)
+    # - name: Deploy to GitHub Pages
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./frontend
+
+    # Example: Deploy to a server via SSH
+    # - name: Deploy to server
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
+    #     key: ${{ secrets.SSH_KEY }}
+    #     script: |
+    #       cd /path/to/app
+    #       git pull
+    #       npm install
+    #       npm run build
+    #       pm2 restart app
+
+    - name: Deployment info
+      run: |
+        echo "Deployment package created successfully!"
+        echo "Configure your deployment target by uncommenting the appropriate steps in .github/workflows/deploy.yml"
