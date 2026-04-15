@@ -17,7 +17,7 @@ interface SettingsState {
 }
 
 export const useSettingsStore = create<SettingsState>((set) => ({
-  model: 'GPT-4o-mini',
+  model: 'openai',
   apiUrl: 'https://api.openai.com/v1',
   apiKey: '',
   maxTokens: 1024,
@@ -30,7 +30,7 @@ export const useSettingsStore = create<SettingsState>((set) => ({
   setTemperature: (temperature) => set({ temperature }),
   setMessagePercentage: (messagePercentage) => set({ messagePercentage }),
   reset: () => set({
-    model: 'GPT-4o-mini',
+    model: 'openai',
     apiUrl: 'https://api.openai.com/v1',
     apiKey: '',
     maxTokens: 1024,

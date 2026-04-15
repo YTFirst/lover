@@ -70,7 +70,7 @@ class LLMClient {
   constructor(options: LLMClientOptions) {
     this.apiKey = options.apiKey;
     this.baseURL = options.baseURL || 'https://api.openai.com/v1';
-    this.model = options.model || 'gpt-3.5-turbo';
+    this.model = options.model || 'openai';
   }
 
   async stream(options: StreamOptions, callbacks: {
@@ -81,14 +81,48 @@ class LLMClient {
     const { messages, ...rest } = options;
 
     try {
-      const response = await fetch(`${this.baseURL}/chat/completions`, {
+      // 根据服务商选择合适的模型和端点
+      let modelName = 'gpt-3.5-turbo';
+      let endpoint = '/chat/completions';
+      
+      switch(this.model) {
+        case 'openai':
+          modelName = 'gpt-3.5-turbo';
+          endpoint = '/chat/completions';
+          break;
+        case 'qwen':
+          modelName = 'ep-20240101123456-qwen2.5-72b-a100';
+          endpoint = '/chat/completions';
+          break;
+        case 'doubao':
+          modelName = 'ep-20240101123456-doubao-pro-1.5';
+          endpoint = '/chat/completions';
+          break;
+        case 'deepseek':
+          modelName = 'deepseek-chat';
+          endpoint = '/chat/completions';
+          break;
+        case 'glm':
+          modelName = 'glm-4';
+          endpoint = '/chat/completions';
+          break;
+        case 'gemini':
+          modelName = 'gemini-1.5-flash';
+          endpoint = '/models/gemini-1.5-flash:generateContent';
+          break;
+        default:
+          modelName = 'gpt-3.5-turbo';
+          endpoint = '/chat/completions';
+      }
+
+      const response = await fetch(`${this.baseURL}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.apiKey}`,
         },
         body: JSON.stringify({
-          model: this.model,
+          model: modelName,
           messages,
           stream: true,
           ...rest,
@@ -141,14 +175,48 @@ class LLMClient {
   async completions(options: StreamOptions): Promise<StreamResponse> {
     const { messages, ...rest } = options;
 
-    const response = await fetch(`${this.baseURL}/chat/completions`, {
+    // 根据服务商选择合适的模型和端点
+    let modelName = 'gpt-3.5-turbo';
+    let endpoint = '/chat/completions';
+    
+    switch(this.model) {
+      case 'openai':
+        modelName = 'gpt-3.5-turbo';
+        endpoint = '/chat/completions';
+        break;
+      case 'qwen':
+        modelName = 'ep-20240101123456-qwen2.5-72b-a100';
+        endpoint = '/chat/completions';
+        break;
+      case 'doubao':
+        modelName = 'ep-20240101123456-doubao-pro-1.5';
+        endpoint = '/chat/completions';
+        break;
+      case 'deepseek':
+        modelName = 'deepseek-chat';
+        endpoint = '/chat/completions';
+        break;
+      case 'glm':
+        modelName = 'glm-4';
+        endpoint = '/chat/completions';
+        break;
+      case 'gemini':
+        modelName = 'gemini-1.5-flash';
+        endpoint = '/models/gemini-1.5-flash:generateContent';
+        break;
+      default:
+        modelName = 'gpt-3.5-turbo';
+        endpoint = '/chat/completions';
+    }
+
+    const response = await fetch(`${this.baseURL}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.apiKey}`,
       },
       body: JSON.stringify({
-        model: this.model,
+        model: modelName,
         messages,
         stream: false,
         ...rest,

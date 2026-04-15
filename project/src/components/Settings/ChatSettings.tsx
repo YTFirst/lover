@@ -30,24 +30,51 @@ const ChatSettings: React.FC = () => {
           </button>
         </div>
 
-        {/* LLM模型 */}
+        {/* 服务商选择 */}
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">LLM模型</label>
+          <label className="block text-sm font-medium text-gray-700 mb-2">服务商</label>
           <div className="relative">
             <select 
               value={model} 
-              onChange={(e) => setModel(e.target.value)}
+              onChange={(e) => {
+                setModel(e.target.value);
+                // 根据选择的服务商自动设置API URL
+                const provider = e.target.value;
+                let apiUrlValue = 'https://api.openai.com/v1';
+                
+                switch(provider) {
+                  case 'openai':
+                    apiUrlValue = 'https://api.openai.com/v1';
+                    break;
+                  case 'qwen':
+                    apiUrlValue = 'https://ark.cn-beijing.volces.com/api/v3';
+                    break;
+                  case 'doubao':
+                    apiUrlValue = 'https://ark.cn-beijing.volces.com/api/v3';
+                    break;
+                  case 'deepseek':
+                    apiUrlValue = 'https://api.deepseek.com/v1';
+                    break;
+                  case 'glm':
+                    apiUrlValue = 'https://open.bigmodel.cn/api/misc/v1';
+                    break;
+                  case 'gemini':
+                    apiUrlValue = 'https://generativelanguage.googleapis.com/v1';
+                    break;
+                  default:
+                    apiUrlValue = 'https://api.openai.com/v1';
+                }
+                
+                setApiUrl(apiUrlValue);
+              }}
               className="w-full p-3 bg-purple-50 border border-purple-200 rounded-lg text-purple-700 font-medium"
             >
-              <option value="GPT-4o-mini">GPT-4o-mini</option>
-              <option value="GPT-4o">GPT-4o</option>
-              <option value="GPT-3.5-turbo">GPT-3.5-turbo</option>
-              <option value="qwen-2.5">通义千问 Qwen 2.5</option>
+              <option value="openai">OpenAI (GPT系列)</option>
+              <option value="qwen">通义千问</option>
               <option value="doubao">豆包</option>
-              <option value="deepseek">深度求索 DeepSeek</option>
-              <option value="glm-4">智谱 GLM-4</option>
-              <option value="gemini-1.5">Google Gemini 1.5</option>
-              <option value="cloud">云服务模型</option>
+              <option value="deepseek">深度求索</option>
+              <option value="glm">智谱 GLM</option>
+              <option value="gemini">Google Gemini</option>
             </select>
           </div>
         </div>
