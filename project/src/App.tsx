@@ -5,6 +5,7 @@ import { StepBasicInfo } from './components/StepBasicInfo'
 import { StepPrompt } from './components/StepPrompt'
 import ChatPage from './components/ChatPage'
 import Settings from './components/Settings'
+import CharacterPage from './components/CharacterPage'
 import { useThemeStore } from './store/themeStore'
 
 function App() {
@@ -161,10 +162,12 @@ function App() {
             <Settings />
           )}
 
-          {activeTab !== 'chat' && activeTab !== 'components' && activeTab !== 'setup' && activeTab !== 'settings' && (
+          {activeTab === 'character' && <CharacterPage />}
+          
+          {activeTab !== 'chat' && activeTab !== 'components' && activeTab !== 'setup' && activeTab !== 'settings' && activeTab !== 'character' && (
             <div className={`h-full flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-50'} transition-colors duration-300`}>
               <div className="text-center">
-                <h2 className={`text-2xl font-bold ${isDark ? 'text-gray-300' : 'text-gray-500'}`}>{activeTab === 'character' ? '角色' : activeTab === 'communicate' ? '沟通' : activeTab} 页面</h2>
+                <h2 className={`text-2xl font-bold ${isDark ? 'text-gray-300' : 'text-gray-500'}`}>{activeTab === 'communicate' ? '沟通' : activeTab} 页面</h2>
                 <p className={`mt-2 ${isDark ? 'text-gray-400' : 'text-gray-400'}`}>此页面正在开发中...</p>
               </div>
             </div>
