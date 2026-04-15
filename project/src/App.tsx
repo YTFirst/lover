@@ -30,10 +30,10 @@ function App() {
       {/* 自定义标题栏 */}
       <div 
         className="h-12 bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-between px-4 select-none"
-        style={{ webkitAppRegion: 'drag' } as React.CSSProperties}
+        style={{ WebkitAppRegion: 'drag' } as React.CSSProperties}
       >
         <div className="text-white font-semibold">心伴 HeartMate</div>
-        <div className="flex gap-2" style={{ webkitAppRegion: 'no-drag' } as React.CSSProperties}>
+        <div className="flex gap-2" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
           <button 
             onClick={toggleTheme} 
             className="w-8 h-8 flex items-center justify-center hover:bg-white/20 rounded-full"
@@ -66,7 +66,7 @@ function App() {
         {/* 左侧导航栏 */}
         <div className={`w-64 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'} border-r p-4 transition-colors duration-300`}>
           <div className="mb-8">
-            <h2 className={`text-sm font-semibold ${isDark ? 'text-gray-300' : 'text-gray-500'} uppercase tracking-wider mb-4`}>AI 虚拟女友</h2>
+            <h2 className={`text-sm font-semibold ${isDark ? 'text-gray-300' : 'text-gray-500'} mb-4`}>心伴 HeartMate</h2>
           </div>
           <nav className="space-y-2">
             <div 
@@ -76,7 +76,7 @@ function App() {
               onClick={() => setActiveTab('chat')}
             >
               <span className="text-xl">💬</span>
-              <span>Chat</span>
+              <span>对话</span>
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -85,7 +85,7 @@ function App() {
               onClick={() => setActiveTab('character')}
             >
               <span className="text-xl">👤</span>
-              <span>Character</span>
+              <span>角色</span>
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -94,7 +94,7 @@ function App() {
               onClick={() => setActiveTab('settings')}
             >
               <span className="text-xl">⚙️</span>
-              <span>Settings</span>
+              <span>设置</span>
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -103,7 +103,7 @@ function App() {
               onClick={() => setActiveTab('communicate')}
             >
               <span className="text-xl">📞</span>
-              <span>Communicate</span>
+              <span>沟通</span>
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -112,7 +112,7 @@ function App() {
               onClick={() => setActiveTab('components')}
             >
               <span className="text-xl">🧩</span>
-              <span>Components</span>
+              <span>组件</span>
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -121,7 +121,7 @@ function App() {
               onClick={() => setActiveTab('setup')}
             >
               <span className="text-xl">🛠️</span>
-              <span>Setup</span>
+              <span>设置向导</span>
             </div>
           </nav>
         </div>
@@ -150,7 +150,7 @@ function App() {
           {activeTab !== 'chat' && activeTab !== 'components' && activeTab !== 'setup' && activeTab !== 'settings' && (
             <div className={`h-full flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-50'} transition-colors duration-300`}>
               <div className="text-center">
-                <h2 className={`text-2xl font-bold ${isDark ? 'text-gray-300' : 'text-gray-500'}`}>{activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} 页面</h2>
+                <h2 className={`text-2xl font-bold ${isDark ? 'text-gray-300' : 'text-gray-500'}`}>{activeTab === 'character' ? '角色' : activeTab === 'communicate' ? '沟通' : activeTab} 页面</h2>
                 <p className={`mt-2 ${isDark ? 'text-gray-400' : 'text-gray-400'}`}>此页面正在开发中...</p>
               </div>
             </div>

@@ -38,27 +38,26 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
-      <button
-        type="button"
+      <div
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 focus:outline-none"
+        className="flex items-center space-x-1 focus:outline-none cursor-pointer"
       >
         {trigger}
-      </button>
+      </div>
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
           <div className="py-1">
             {items.map((item) => (
-              <button
+              <div
                 key={item.id}
                 onClick={() => {
                   item.onClick();
                   setIsOpen(false);
                 }}
-                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
               >
                 {item.label}
-              </button>
+              </div>
             ))}
           </div>
         </div>
