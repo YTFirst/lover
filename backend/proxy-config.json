@@ -1,8 +1,0 @@
-{
-  "provider": "qwen",
-  "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-  "modelId": "qwen-plus",
-  "apiKey": "sk-b987f129cdb44192b2ca5249cba22b07",
-  "temperature": 0.7,
-  "maxTokens": 2000
-}
