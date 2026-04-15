@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { LLMClient, type ChatMessage } from '../services/llmClient';
 import { useThemeStore } from '../store/themeStore';
 import { useCharacterStore } from '../store/characterStore';
+import { useSettingsStore } from '../store/settingsStore';
 import { Toast, useToast } from './Toast';
 
 interface Message {
@@ -21,9 +22,14 @@ const ChatPage = () => {
   const { isDark } = useThemeStore();
   const { toasts, addToast, removeToast } = useToast();
   const { characterName, fullBody, avatar } = useCharacterStore();
+  const { apiKey, apiUrl, model, maxTokens, temperature } = useSettingsStore();
   
-  // Mock LLM client for demo purposes
-  const llmClient = new LLMClient({ apiKey: 'demo-key' });
+  // LLM client
+  const llmClient = new LLMClient({ 
+    apiKey: apiKey || 'demo-key',
+    baseURL: apiUrl,
+    model: model
+  });
   
   // 加载对话历史
   useEffect(() => {
@@ -91,8 +97,8 @@ const ChatPage = () => {
       await llmClient.stream(
         {
           messages: chatMessages,
-          temperature: 0.7,
-          maxTokens: 1000
+          temperature: temperature,
+          maxTokens: maxTokens
         },
         {
           onData: (data) => {

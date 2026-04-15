@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useSettingsStore } from '../../store/settingsStore';
 import { Slider } from '../Slider';
 
 const ChatSettings: React.FC = () => {
-  const [model, setModel] = useState('GPT-4o-mini');
-  const [apiUrl, setApiUrl] = useState('https://api.openai.com/v1');
-  const [apiKey, setApiKey] = useState('打密码');
+  const { 
+    model, setModel,
+    apiUrl, setApiUrl,
+    apiKey, setApiKey,
+    maxTokens, setMaxTokens,
+    temperature, setTemperature,
+    messagePercentage, setMessagePercentage
+  } = useSettingsStore();
   const [showApiKey, setShowApiKey] = useState(false);
-  const [maxTokens, setMaxTokens] = useState(1024);
-  const [temperature, setTemperature] = useState(0.8);
-  const [messagePercentage, setMessagePercentage] = useState(50);
 
   const handleTestConnection = () => {
     // 这里实现测试连接的逻辑
