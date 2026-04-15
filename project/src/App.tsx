@@ -122,7 +122,7 @@ function App() {
         </div>
 
         {/* 右侧主内容 */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
           {activeTab === 'chat' && (
             <ChatPage />
           )}

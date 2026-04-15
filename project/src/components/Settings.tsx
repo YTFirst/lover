@@ -41,7 +41,7 @@ const Settings: React.FC<SettingsProps> = () => {
       </div>
 
       {/* 右侧设置内容 */}
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-6 overflow-y-auto">
         {settingsTab === 'chat' && <ChatSettings />}
         {settingsTab === 'privacy' && <PrivacySettings />}
         {settingsTab === 'about' && <AboutSettings />}

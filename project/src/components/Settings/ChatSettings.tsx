@@ -23,9 +23,9 @@ const ChatSettings: React.FC = () => {
       <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold text-gray-800">对话设置</h2>
-          <button className="text-gray-400 hover:text-gray-600">
+          <button className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
@@ -166,11 +166,11 @@ const ChatSettings: React.FC = () => {
         {/* 尝试连接按钮 */}
         <button 
           onClick={handleTestConnection}
-          className="w-full py-3 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg flex items-center justify-center gap-2"
+          className="w-full py-3 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium rounded-lg flex items-center justify-center gap-2 transition-colors"
         >
           <span>尝试连接</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
         </button>
       </div>
