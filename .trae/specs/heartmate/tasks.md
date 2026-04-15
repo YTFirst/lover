@@ -1,6 +1,6 @@
 # 心伴 HeartMate - The Implementation Plan (Decomposed and Prioritized Task List)
 
-## [ ] Task 1: 项目初始化与基础框架搭建
+## [x] Task 1: 项目初始化与基础框架搭建
 - **Priority**: P0
 - **Depends On**: None
 - **Description**: 
@@ -14,7 +14,7 @@
   - `human-judgement` TR-1.3: 目录结构符合规划
 - **Notes**: 使用 Vite + Electron 模板
 
-## [ ] Task 2: 主窗口与自定义标题栏
+## [x] Task 2: 主窗口与自定义标题栏
 - **Priority**: P0
 - **Depends On**: Task 1
 - **Description**: 
@@ -27,7 +27,7 @@
   - `human-judgement` TR-2.2: 自定义标题栏功能正常
 - **Notes**: 参考 ui_designs/01_main_window.jpg
 
-## [ ] Task 3: 沉浸式渐变背景与侧边栏
+## [x] Task 3: 沉浸式渐变背景与侧边栏
 - **Priority**: P0
 - **Depends On**: Task 2
 - **Description**: 
@@ -40,7 +40,7 @@
   - `human-judgement` TR-3.2: 侧边栏导航可以切换页面
 - **Notes**:
 
-## [ ] Task 4: 基础组件库
+## [x] Task 4: 基础组件库
 - **Priority**: P0
 - **Depends On**: Task 1
 - **Description**: 
@@ -52,7 +52,7 @@
   - `human-judgement` TR-4.2: 组件交互正常
 - **Notes**: 遵循设计规范中的色彩和圆角
 
-## [ ] Task 5: SQLite 数据库初始化
+## [x] Task 5: SQLite 数据库初始化
 - **Priority**: P0
 - **Depends On**: Task 1
 - **Description**: 
@@ -65,7 +65,7 @@
   - `programmatic` TR-5.2: 可以读写数据库
 - **Notes**: 参考开发需求文档中的表结构
 
-## [ ] Task 6: 首次设置向导 - Step 1
+## [x] Task 6: 首次设置向导 - Step 1
 - **Priority**: P0
 - **Depends On**: Task 3, Task 4, Task 5
 - **Description**: 
@@ -79,7 +79,7 @@
   - `programmatic` TR-6.3: 可以选择头像和立绘
 - **Notes**:
 
-## [ ] Task 7: 首次设置向导 - Step 2
+## [x] Task 7: 首次设置向导 - Step 2
 - **Priority**: P0
 - **Depends On**: Task 6
 - **Description**: 
@@ -94,7 +94,7 @@
   - `programmatic` TR-7.3: 角色保存成功
 - **Notes**:
 
-## [ ] Task 8: LLM API 客户端
+## [x] Task 8: LLM API 客户端
 - **Priority**: P0
 - **Depends On**: Task 5
 - **Description**: 
@@ -108,7 +108,7 @@
   - `programmatic` TR-8.3: 变量替换正确
 - **Notes**: 支持 OpenAI 兼容 API
 
-## [ ] Task 9: 沉浸式对话界面
+## [x] Task 9: 沉浸式对话界面
 - **Priority**: P0
 - **Depends On**: Task 3, Task 4
 - **Description**: 
@@ -122,7 +122,7 @@
   - `human-judgement` TR-9.2: 毛玻璃效果正常
 - **Notes**: 参考 ui_designs/08_chat_main.jpg
 
-## [ ] Task 10: 对话历史与流式输出
+## [x] Task 10: 对话历史与流式输出
 - **Priority**: P0
 - **Depends On**: Task 8, Task 9
 - **Description**: 
@@ -136,7 +136,7 @@
   - `programmatic` TR-10.3: 打字机效果正常
 - **Notes**:
 
-## [ ] Task 10.5: 多段式对话
+## [x] Task 10.5: 多段式对话
 - **Priority**: P0
 - **Depends On**: Task 10
 - **Description**: 
@@ -150,7 +150,7 @@
   - `human-judgement` TR-10.5.3: 多条消息依次显示，自然流畅
 - **Notes**: 在System Prompt中提示AI使用特定的隐藏分割符
 
-## [ ] Task 11: 记忆系统 - 文件管理
+## [x] Task 11: 记忆系统 - 文件管理
 - **Priority**: P0
 - **Depends On**: Task 5
 - **Description**: 
@@ -163,7 +163,7 @@
   - `programmatic` TR-11.2: 可以读写记忆文件内容
 - **Notes**: Markdown 格式存储
 
-## [ ] Task 12: 记忆系统 - 自动生成
+## [x] Task 12: 记忆系统 - 自动生成
 - **Priority**: P0
 - **Depends On**: Task 8, Task 11
 - **Description**: 
@@ -176,7 +176,7 @@
   - `programmatic` TR-12.2: 可以生成每周提炼
 - **Notes**: 使用 LLM 提取记忆
 
-## [ ] Task 13: 记忆注入与管理 UI
+## [x] Task 13: 记忆注入与管理 UI
 - **Priority**: P1
 - **Depends On**: Task 11, Task 12
 - **Description**: 
@@ -189,7 +189,7 @@
   - `human-judgement` TR-13.2: 记忆管理 UI 功能正常
 - **Notes**: 参考 ui_designs/10_settings_memory.jpg
 
-## [ ] Task 14: 设置系统
+## [x] Task 14: 设置系统
 - **Priority**: P0
 - **Depends On**: Task 3, Task 4, Task 5
 - **Description**: 
@@ -204,7 +204,7 @@
   - `programmatic` TR-14.2: 设置保存成功
 - **Notes**: 参考 ui_designs/09_settings_chat.jpg 等
 
-## [ ] Task 15: 系统托盘与最小化
+## [x] Task 15: 系统托盘与最小化
 - **Priority**: P1
 - **Depends On**: Task 2
 - **Description**: 
@@ -216,7 +216,7 @@
   - `human-judgement` TR-15.1: 托盘功能正常
 - **Notes**:
 
-## [ ] Task 16: 打磨与优化
+## [x] Task 16: 打磨与优化
 - **Priority**: P1
 - **Depends On**: Task 1-15
 - **Description**: 
