@@ -39,6 +39,9 @@ const ChatSettings: React.FC = () => {
               <option value="GPT-4o-mini">GPT-4o-mini</option>
               <option value="GPT-4o">GPT-4o</option>
               <option value="GPT-3.5-turbo">GPT-3.5-turbo</option>
+              <option value="qwen-2.5">通义千问 Qwen 2.5</option>
+              <option value="doubao">豆包</option>
+              <option value="deepseek">深度求索 DeepSeek</option>
             </select>
           </div>
         </div>
@@ -83,10 +86,10 @@ const ChatSettings: React.FC = () => {
         </div>
 
         {/* Max Tokens 和 Temperature */}
-        <div className="grid grid-cols-2 gap-6 mb-6">
+        <div className="space-y-6 mb-6">
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm font-medium text-gray-700">Max Tokens</label>
+              <label className="text-sm font-medium text-gray-700">最大 Token 数</label>
               <span className="text-sm font-medium text-purple-700">{maxTokens}</span>
             </div>
             <Slider 
@@ -99,7 +102,7 @@ const ChatSettings: React.FC = () => {
           </div>
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm font-medium text-gray-700">Temperature</label>
+              <label className="text-sm font-medium text-gray-700">温度系数</label>
               <span className="text-sm font-medium text-purple-700">{temperature}</span>
             </div>
             <Slider 
@@ -112,10 +115,10 @@ const ChatSettings: React.FC = () => {
           </div>
         </div>
 
-        {/* 人穷消息数 */}
+        {/* 上下文消息数 */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <label className="text-sm font-medium text-gray-700">人穷消息数</label>
+            <label className="text-sm font-medium text-gray-700">上下文消息数</label>
             <span className="text-sm font-medium text-purple-700">{messagePercentage}%</span>
           </div>
           <Slider 

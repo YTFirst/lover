@@ -23,6 +23,9 @@ const ChatPage = () => {
   // Mock LLM client for demo purposes
   const llmClient = new LLMClient({ apiKey: 'demo-key' });
 
+  // 角色信息
+  const [characterName] = useState('小雪');
+  
   // 加载对话历史
   useEffect(() => {
     const loadHistory = async () => {
@@ -31,7 +34,7 @@ const ChatPage = () => {
         {
           id: '1',
           role: 'assistant',
-          content: '你好！我是心伴 HeartMate，你的虚拟女友。有什么我可以帮助你的吗？',
+          content: `你好！我是${characterName}，你的虚拟女友。有什么我可以帮助你的吗？`,
           timestamp: new Date(Date.now() - 3600000)
         }
       ];
@@ -39,7 +42,7 @@ const ChatPage = () => {
     };
 
     loadHistory();
-  }, []);
+  }, [characterName]);
 
   // 滚动到最新消息
   useEffect(() => {
@@ -76,7 +79,7 @@ const ChatPage = () => {
     const chatMessages: ChatMessage[] = [
       {
         role: 'system',
-        content: '你是心伴 HeartMate，一个温柔、体贴的虚拟女友。你总是以友好和关爱的态度回应用户，提供情感支持和陪伴。\n\n当你需要发送多条独立消息时，请使用隐藏分割符 [SEPARATOR] 来分隔它们。每条消息将被单独显示。例如：\n消息1内容 [SEPARATOR] 消息2内容 [SEPARATOR] 消息3内容'
+        content: `你是${characterName}，一个温柔、体贴的虚拟女友。你总是以友好和关爱的态度回应用户，提供情感支持和陪伴。\n\n当你需要发送多条独立消息时，请使用隐藏分割符 [SEPARATOR] 来分隔它们。每条消息将被单独显示。例如：\n消息1内容 [SEPARATOR] 消息2内容 [SEPARATOR] 消息3内容`
       },
       ...messages.map(msg => ({
         role: msg.role,
@@ -172,7 +175,15 @@ const ChatPage = () => {
 
   return (
     <div className="relative h-full">
-      <div className={`h-full flex flex-col ${isDark ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-purple-400 to-pink-400'} p-4 transition-colors duration-300`}>
+      <div className={`h-full flex flex-col ${isDark ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-purple-400 to-pink-400'} p-4 transition-colors duration-300 relative overflow-hidden`}>
+        {/* 角色立绘背景 */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+          <img 
+            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20style%20girl%20portrait%2C%20soft%20features%2C%20gentle%20smile%2C%20pastel%20colors%2C%20high%20quality%2C%20detailed%20illustration" 
+            alt="Character" 
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
         {/* 聊天消息区域 */}
         <div className="flex-1 overflow-y-auto mb-4">
           {messages.map(message => (
