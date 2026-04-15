@@ -22,8 +22,9 @@
 
 ## Background & Context
 - 技术栈：Electron + React + TypeScript + Tailwind CSS + better-sqlite3 + Zustand
-- UI 风格：二次元动漫风，沉浸式渐变背景（薰衣草紫→樱花粉）
+- UI 风格：二次元动漫风，沉浸式渐变背景（薰衣草紫→樱花粉），参考 macOS 设计风格的简洁现代感
 - 参考文档：development_requirements.md、prd_electronic_girlfriend.docx
+- UI 设计参考：`/workspace/project/ui_designs` 目录下的所有设计图，包括主窗口、设置页、对话界面等
 
 ## Functional Requirements
 - **FR-1**: 首次启动与角色设定
