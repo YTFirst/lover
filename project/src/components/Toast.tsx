@@ -28,26 +28,35 @@ export const Toast: React.FC<ToastProps> = ({
     return () => clearTimeout(timer);
   }, [duration, onClose]);
 
-  const typeClasses = {
-    success: 'bg-green-500 text-white',
-    error: 'bg-red-500 text-white',
-    warning: 'bg-yellow-500 text-white',
-    info: 'bg-blue-500 text-white',
-  };
+
 
   return (
     <div 
-      className={`fixed top-4 right-4 px-4 py-3 rounded-lg shadow-lg z-50 transition-all duration-300 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}
-      style={{
-        background: typeClasses[type],
-      }}
+      className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
     >
-      <div className="flex items-center gap-2">
-        {type === 'success' && <span className="text-lg">✅</span>}
-        {type === 'error' && <span className="text-lg">❌</span>}
-        {type === 'warning' && <span className="text-lg">⚠️</span>}
-        {type === 'info' && <span className="text-lg">ℹ️</span>}
-        <span className="font-medium">{message}</span>
+      <div className="absolute inset-0 bg-black/20" onClick={onClose}></div>
+      <div 
+        className={`relative px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md bg-white/90 border border-white/30 max-w-sm mx-4 transform transition-all duration-300 ${isVisible ? 'scale-100' : 'scale-90'}`}
+      >
+        <div className="flex items-center gap-3">
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+            type === 'success' ? 'bg-green-100' : 
+            type === 'error' ? 'bg-red-100' : 
+            type === 'warning' ? 'bg-yellow-100' : 'bg-blue-100'
+          }`}>
+            {type === 'success' && <span className="text-xl">✅</span>}
+            {type === 'error' && <span className="text-xl">❌</span>}
+            {type === 'warning' && <span className="text-xl">⚠️</span>}
+            {type === 'info' && <span className="text-xl">ℹ️</span>}
+          </div>
+          <div className="flex-1">
+            <p className={`font-medium ${
+              type === 'success' ? 'text-green-700' : 
+              type === 'error' ? 'text-red-700' : 
+              type === 'warning' ? 'text-yellow-700' : 'text-blue-700'
+            }`}>{message}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
