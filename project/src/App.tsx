@@ -122,7 +122,7 @@ function App() {
         </div>
 
         {/* 右侧主内容 */}
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-auto">
           {activeTab === 'chat' && (
             <ChatPage />
           )}
