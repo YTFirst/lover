@@ -12,6 +12,7 @@ function App() {
   const [isMaximized, setIsMaximized] = useState(false)
   const [activeTab, setActiveTab] = useState('chat')
   const [setupStep, setSetupStep] = useState(1)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true)
 
   const handleMinimize = () => {
     window.electron.minimize()
@@ -67,10 +68,20 @@ function App() {
       {/* 主内容区域 */}
       <div className="flex flex-1">
         {/* 左侧导航栏 */}
-        <div className={`w-64 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'} border-r p-4 transition-colors duration-300`}>
-          <div className="mb-8">
-            <h2 className={`text-sm font-semibold ${isDark ? 'text-gray-300' : 'text-gray-500'} mb-4`}>心伴 HeartMate</h2>
+        <div className={`${sidebarCollapsed ? 'w-20' : 'w-64'} ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'} border-r p-4 transition-all duration-300 ease-in-out`}>
+          <div className="flex justify-end mb-8">
+            <button 
+              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              className={`w-8 h-8 flex items-center justify-center rounded-full ${isDark ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'} transition-colors`}
+            >
+              <span className="text-lg">{sidebarCollapsed ? '→' : '←'}</span>
+            </button>
           </div>
+          {!sidebarCollapsed && (
+            <div className="mb-8">
+              <h2 className={`text-sm font-semibold ${isDark ? 'text-gray-300' : 'text-gray-500'} mb-4`}>心伴 HeartMate</h2>
+            </div>
+          )}
           <nav className="space-y-2">
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -79,7 +90,7 @@ function App() {
               onClick={() => setActiveTab('chat')}
             >
               <span className="text-xl">💬</span>
-              <span>对话</span>
+              {!sidebarCollapsed && <span>对话</span>}
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -88,7 +99,7 @@ function App() {
               onClick={() => setActiveTab('character')}
             >
               <span className="text-xl">👤</span>
-              <span>角色</span>
+              {!sidebarCollapsed && <span>角色</span>}
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -97,7 +108,7 @@ function App() {
               onClick={() => setActiveTab('settings')}
             >
               <span className="text-xl">⚙️</span>
-              <span>设置</span>
+              {!sidebarCollapsed && <span>设置</span>}
             </div>
 
             <div 
@@ -107,7 +118,7 @@ function App() {
               onClick={() => setActiveTab('components')}
             >
               <span className="text-xl">🧩</span>
-              <span>组件</span>
+              {!sidebarCollapsed && <span>组件</span>}
             </div>
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
@@ -116,7 +127,7 @@ function App() {
               onClick={() => setActiveTab('setup')}
             >
               <span className="text-xl">🛠️</span>
-              <span>设置向导</span>
+              {!sidebarCollapsed && <span>设置向导</span>}
             </div>
           </nav>
         </div>
