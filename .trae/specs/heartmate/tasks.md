@@ -136,6 +136,20 @@
   - `programmatic` TR-10.3: 打字机效果正常
 - **Notes**:
 
+## [ ] Task 10.5: 多段式对话
+- **Priority**: P0
+- **Depends On**: Task 10
+- **Description**: 
+  - 实现隐藏分割符识别与解析
+  - 将AI返回的内容按分割符拆分为多条独立消息
+  - 实现多消息依次显示效果
+- **Acceptance Criteria Addressed**: [AC-6]
+- **Test Requirements**:
+  - `programmatic` TR-10.5.1: 可以识别隐藏分割符
+  - `programmatic` TR-10.5.2: 可以将内容拆分为多条消息
+  - `human-judgement` TR-10.5.3: 多条消息依次显示，自然流畅
+- **Notes**: 在System Prompt中提示AI使用特定的隐藏分割符
+
 ## [ ] Task 11: 记忆系统 - 文件管理
 - **Priority**: P0
 - **Depends On**: Task 5
