@@ -177,12 +177,10 @@ const ChatPage = () => {
     <div className="relative h-full">
       <div className={`h-full flex flex-col ${isDark ? 'bg-gradient-to-br from-gray-800 to-gray-900' : 'bg-gradient-to-br from-purple-400 to-pink-400'} p-4 transition-colors duration-300 relative overflow-hidden`}>
         {/* 角色立绘背景 */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
-          <img 
-            src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20style%20girl%20portrait%2C%20soft%20features%2C%20gentle%20smile%2C%20pastel%20colors%2C%20high%20quality%2C%20detailed%20illustration" 
-            alt="Character" 
-            className="max-h-full max-w-full object-contain"
-          />
+        <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none z-0">
+          <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+            <div className="text-8xl">💖</div>
+          </div>
         </div>
         {/* 聊天消息区域 */}
         <div className="flex-1 overflow-y-auto mb-4">

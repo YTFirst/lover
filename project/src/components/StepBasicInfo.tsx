@@ -20,36 +20,36 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
   const avatarOptions: CharacterImage[] = [
     {
       id: 'avatar1',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20avatar%20with%20pink%20hair%2C%20cute%2C%20digital%20art%2C%20headshot&image_size=square',
-      name: 'Pink Hair'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMjBDMzAgMjAgMTAgNDAgMTAgNjBDMTAgODAgMzAgMTAwIDUwIDEwMEM3MCAxMDAgOTAgODAgOTAgNjBDOTAgNDAgNzAgMjAgNTAgMjBaIiBmaWxsPSIjZmQ3YzRlIi8+PHN2ZyB4PSI1MCIgeT0iNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjZmZmIi8+PC9zdmc+PC9zdmc+',
+      name: '粉色头发'
     },
     {
       id: 'avatar2',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20avatar%20with%20black%20hair%2C%20cute%2C%20digital%20art%2C%20headshot&image_size=square',
-      name: 'Black Hair'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMjBDMzAgMjAgMTAgNDAgMTAgNjBDMTAgODAgMzAgMTAwIDUwIDEwMEM3MCAxMDAgOTAgODAgOTAgNjBDOTAgNDAgNzAgMjAgNTAgMjBaIiBmaWxsPSIjZmQ3YzRlIi8+PHN2ZyB4PSI1MCIgeT0iNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjMjIyIi8+PC9zdmc+PC9zdmc+',
+      name: '黑色头发'
     },
     {
       id: 'avatar3',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20avatar%20with%20brown%20hair%2C%20cute%2C%20digital%20art%2C%20headshot&image_size=square',
-      name: 'Brown Hair'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMjBDMzAgMjAgMTAgNDAgMTAgNjBDMTAgODAgMzAgMTAwIDUwIDEwMEM3MCAxMDAgOTAgODAgOTAgNjBDOTAgNDAgNzAgMjAgNTAgMjBaIiBmaWxsPSIjZmQ3YzRlIi8+PHN2ZyB4PSI1MCIgeT0iNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjZTFjMGJjIi8+PC9zdmc+PC9zdmc+',
+      name: '棕色头发'
     }
   ];
 
   const fullBodyOptions: CharacterImage[] = [
     {
       id: 'fullbody1',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20with%20pink%20hair%2C%20cute%2C%20digital%20art%2C%20full%20body&image_size=portrait_4_3',
-      name: 'Pink Hair Full'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMTBDMzAgMTAgMTAgMzAgMTAgNTBDMTAgOTAgNTAgMTQwIDkwIDkwQzkwIDMwIDcwIDEwIDUwIDEwWiIgZmlsbD0iI2ZkN2M0ZSIvPjwvc3ZnPg==',
+      name: '粉色头发立绘'
     },
     {
       id: 'fullbody2',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20with%20black%20hair%2C%20cute%2C%20digital%20art%2C%20full%20body&image_size=portrait_4_3',
-      name: 'Black Hair Full'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMTBDMzAgMTAgMTAgMzAgMTAgNTBDMTAgOTAgNTAgMTQwIDkwIDkwQzkwIDMwIDcwIDEwIDUwIDEwWiIgZmlsbD0iI2Y3N2M3NyIvPjwvc3ZnPg==',
+      name: '黑色头发立绘'
     },
     {
       id: 'fullbody3',
-      src: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=anime%20girl%20with%20brown%20hair%2C%20cute%2C%20digital%20art%2C%20full%20body&image_size=portrait_4_3',
-      name: 'Brown Hair Full'
+      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAgMTBDMzAgMTAgMTAgMzAgMTAgNTBDMTAgOTAgNTAgMTQwIDkwIDkwQzkwIDMwIDcwIDEwIDUwIDEwWiIgZmlsbD0iI2Q5ODI2NiIvPjwvc3ZnPg==',
+      name: '棕色头发立绘'
     }
   ];
 
