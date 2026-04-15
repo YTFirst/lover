@@ -20,17 +20,17 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
   const avatarOptions: CharacterImage[] = [
     {
       id: 'avatar1',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzNSIgZmlsbD0iI2Y5MGE4Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMjAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSIxMCIgZmlsbD0iI2I1ZjA2NCIvPjwvc3ZnPg==',
+      src: '/images/avatar_01.jpg',
       name: '粉色头发'
     },
     {
       id: 'avatar2',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzNSIgZmlsbD0iIzIyMiIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNiNWYwNjQiLz48L3N2Zz4=',
+      src: '/images/avatar_02.jpg',
       name: '黑色头发'
     },
     {
       id: 'avatar3',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzNSIgZmlsbD0iI2UxYzBiYyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI0MCIgcj0iMTAiIGZpbGw9IiNiNWYwNjQiLz48L3N2Zz4=',
+      src: '/images/avatar_03.jpg',
       name: '棕色头发'
     }
   ];
@@ -38,17 +38,17 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
   const fullBodyOptions: CharacterImage[] = [
     {
       id: 'fullbody1',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjcwIiByPSIzNSIgZmlsbD0iI2Y5MGE4Ii8+PGNpcmNsZSBjeD0iNTAiIGN5PSI3MCIgcj0iMjAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjYwIiByPSIxMCIgZmlsbD0iI2I1ZjA2NCIvPjxyZWN0IHg9IjM1IiB5PSIxMDUiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0MCIgZmlsbD0iI2Y5MGE4Ii8+PC9zdmc+',
+      src: '/images/portrait_01.jpg',
       name: '粉色头发立绘'
     },
     {
       id: 'fullbody2',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjcwIiByPSIzNSIgZmlsbD0iIzIyMiIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNzAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI2MCIgcj0iMTAiIGZpbGw9IiNiNWYwNjQiLz48cmVjdCB4PSIzNSIgeT0iMTA1IiB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIGZpbGw9IiMyMjIiLz48L3N2Zz4=',
+      src: '/images/portrait_02.jpg',
       name: '黑色头发立绘'
     },
     {
       id: 'fullbody3',
-      src: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjcwIiByPSIzNSIgZmlsbD0iI2UxYzBiYyIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNzAiIHI9IjIwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI2MCIgcj0iMTAiIGZpbGw9IiNiNWYwNjQiLz48cmVjdCB4PSIzNSIgeT0iMTA1IiB3aWR0aD0iMzAiIGhlaWdodD0iNDAiIGZpbGw9IiNlMWMwYmMiLz48L3N2Zz4=',
+      src: '/images/portrait_03.jpg',
       name: '棕色头发立绘'
     }
   ];
