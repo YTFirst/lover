@@ -99,15 +99,7 @@ function App() {
               <span className="text-xl">⚙️</span>
               <span>设置</span>
             </div>
-            <div 
-              className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
-                activeTab === 'communicate' ? (isDark ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100')
-              }`}
-              onClick={() => setActiveTab('communicate')}
-            >
-              <span className="text-xl">📞</span>
-              <span>沟通</span>
-            </div>
+
             <div 
               className={`p-3 rounded-lg font-medium flex items-center gap-3 cursor-pointer transition-colors duration-200 ${
                 activeTab === 'components' ? (isDark ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100')

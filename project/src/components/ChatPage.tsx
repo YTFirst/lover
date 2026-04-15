@@ -265,11 +265,11 @@ const ChatPage = () => {
             disabled={isTyping}
           />
           <button
-            className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-colors"
+            className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-colors shadow-lg active:scale-95 transition-all duration-200"
             onClick={handleSend}
             disabled={isTyping || !input.trim()}
           >
-            <span className="text-lg">✓</span>
+            <span className="text-lg">➤</span>
           </button>
         </div>
       </div>
