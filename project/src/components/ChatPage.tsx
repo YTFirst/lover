@@ -235,7 +235,7 @@ const ChatPage = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="HeartMate, ..."
+            placeholder="和小雪聊聊吧..."
             className={`flex-1 px-4 py-3 rounded-full focus:outline-none ${isDark ? 'bg-gray-600 text-white placeholder-gray-400' : 'placeholder-gray-400'} transition-colors duration-200`}
             disabled={isTyping}
           />
