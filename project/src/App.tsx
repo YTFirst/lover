@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { TestComponents } from './components/TestComponents'
 import { StepBasicInfo } from './components/StepBasicInfo'
+import { StepPrompt } from './components/StepPrompt'
 import ChatPage from './components/ChatPage'
 import Settings from './components/Settings'
 import { useThemeStore } from './store/themeStore'
@@ -9,6 +10,7 @@ import { useThemeStore } from './store/themeStore'
 function App() {
   const [isMaximized, setIsMaximized] = useState(false)
   const [activeTab, setActiveTab] = useState('chat')
+  const [setupStep, setSetupStep] = useState(1)
 
   const handleMinimize = () => {
     window.electron.minimize()
@@ -137,10 +139,22 @@ function App() {
           )}
 
           {activeTab === 'setup' && (
-            <StepBasicInfo 
-              onNext={() => console.log('Next step')}
-              onBack={() => console.log('Back step')}
-            />
+            <>
+              {setupStep === 1 && (
+                <StepBasicInfo 
+                  onNext={() => setSetupStep(2)}
+                />
+              )}
+              {setupStep === 2 && (
+                <StepPrompt 
+                  onNext={() => {
+                    setActiveTab('chat')
+                    setSetupStep(1)
+                  }}
+                  onBack={() => setSetupStep(1)}
+                />
+              )}
+            </>
           )}
 
           {activeTab === 'settings' && (

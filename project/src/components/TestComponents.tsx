@@ -22,15 +22,15 @@ export const TestComponents: React.FC = () => {
       <h1 className="text-2xl font-bold text-center">组件测试</h1>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">毛玻璃卡片组件 (GlassCard)</h2>
+        <h2 className="text-xl font-semibold mb-4">毛玻璃卡片组件</h2>
         <GlassCard className="max-w-md mx-auto">
           <h3 className="text-lg font-medium mb-2">毛玻璃卡片</h3>
-          <p className="text-gray-700">这是一个带有毛玻璃效果的卡片组件，支持自定义 padding、borderRadius 和 className。</p>
+          <p className="text-gray-700">这是一个带有毛玻璃效果的卡片组件，支持自定义内边距、圆角和类名。</p>
         </GlassCard>
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">按钮组件 (Button)</h2>
+        <h2 className="text-xl font-semibold mb-4">按钮组件</h2>
         <div className="flex flex-wrap gap-4">
           <Button variant="primary">主要按钮</Button>
           <Button variant="secondary">次要按钮</Button>
@@ -45,7 +45,7 @@ export const TestComponents: React.FC = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">开关组件 (Toggle)</h2>
+        <h2 className="text-xl font-semibold mb-4">开关组件</h2>
         <div className="flex items-center space-x-4">
           <Toggle checked={toggleState} onChange={setToggleState} />
           <span>状态: {toggleState ? '开启' : '关闭'}</span>
@@ -55,7 +55,7 @@ export const TestComponents: React.FC = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">滑块组件 (Slider)</h2>
+        <h2 className="text-xl font-semibold mb-4">滑块组件</h2>
         <div className="max-w-md">
           <Slider
             value={sliderValue}
@@ -69,7 +69,7 @@ export const TestComponents: React.FC = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">模态框组件 (Modal)</h2>
+        <h2 className="text-xl font-semibold mb-4">模态框组件</h2>
         <Button variant="primary" onClick={() => setModalOpen(true)}>打开模态框</Button>
         <Modal
           isOpen={modalOpen}
@@ -87,7 +87,7 @@ export const TestComponents: React.FC = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-semibold mb-4">下拉菜单组件 (Dropdown)</h2>
+        <h2 className="text-xl font-semibold mb-4">下拉菜单组件</h2>
         <Dropdown
           trigger={
             <Button variant="outline">
