@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ChatSettings from './Settings/ChatSettings';
-import CharacterSettings from './Settings/CharacterSettings';
 import PrivacySettings from './Settings/PrivacySettings';
 import AboutSettings from './Settings/AboutSettings';
 
@@ -23,13 +22,7 @@ const Settings: React.FC<SettingsProps> = () => {
             <span className="text-xl">💬</span>
             <span>对话设置</span>
           </div>
-          <div 
-            className={`px-4 py-3 font-medium flex items-center gap-3 cursor-pointer ${settingsTab === 'character' ? 'bg-purple-100 text-purple-700' : 'hover:bg-gray-100'}`}
-            onClick={() => setSettingsTab('character')}
-          >
-            <span className="text-xl">👤</span>
-            <span>角色设定</span>
-          </div>
+
           <div 
             className={`px-4 py-3 font-medium flex items-center gap-3 cursor-pointer ${settingsTab === 'privacy' ? 'bg-purple-100 text-purple-700' : 'hover:bg-gray-100'}`}
             onClick={() => setSettingsTab('privacy')}
@@ -50,7 +43,6 @@ const Settings: React.FC<SettingsProps> = () => {
       {/* 右侧设置内容 */}
       <div className="flex-1 p-6">
         {settingsTab === 'chat' && <ChatSettings />}
-        {settingsTab === 'character' && <CharacterSettings />}
         {settingsTab === 'privacy' && <PrivacySettings />}
         {settingsTab === 'about' && <AboutSettings />}
       </div>
