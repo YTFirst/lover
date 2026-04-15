@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GlassCard } from './GlassCard';
+import { useCharacterStore } from '../store/characterStore';
 
 interface StepBasicInfoProps {
   onNext: () => void;
@@ -13,9 +14,14 @@ interface CharacterImage {
 }
 
 export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) => {
-  const [characterName, setCharacterName] = useState('');
-  const [selectedAvatar, setSelectedAvatar] = useState<string>('');
-  const [selectedFullBody, setSelectedFullBody] = useState<string>('');
+  const { characterName, avatar, fullBody, setCharacterName, setAvatar, setFullBody } = useCharacterStore();
+  const [selectedAvatar, setSelectedAvatar] = useState<string>(avatar);
+  const [selectedFullBody, setSelectedFullBody] = useState<string>(fullBody);
+
+  useEffect(() => {
+    setSelectedAvatar(avatar);
+    setSelectedFullBody(fullBody);
+  }, [avatar, fullBody]);
 
   const avatarOptions: CharacterImage[] = [
     {
@@ -55,10 +61,12 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
 
   const handleAvatarChange = (avatarSrc: string) => {
     setSelectedAvatar(avatarSrc);
+    setAvatar(avatarSrc);
   };
 
   const handleFullBodyChange = (fullBodySrc: string) => {
     setSelectedFullBody(fullBodySrc);
+    setFullBody(fullBodySrc);
   };
 
   const handleCustomAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +75,9 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
-          setSelectedAvatar(event.target.result as string);
+          const avatarSrc = event.target.result as string;
+          setSelectedAvatar(avatarSrc);
+          setAvatar(avatarSrc);
         }
       };
       reader.readAsDataURL(file);
@@ -80,7 +90,9 @@ export const StepBasicInfo: React.FC<StepBasicInfoProps> = ({ onNext, onBack }) 
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
-          setSelectedFullBody(event.target.result as string);
+          const fullBodySrc = event.target.result as string;
+          setSelectedFullBody(fullBodySrc);
+          setFullBody(fullBodySrc);
         }
       };
       reader.readAsDataURL(file);

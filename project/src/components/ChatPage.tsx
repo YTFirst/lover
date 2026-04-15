@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { LLMClient, type ChatMessage } from '../services/llmClient';
 import { useThemeStore } from '../store/themeStore';
+import { useCharacterStore } from '../store/characterStore';
 import { Toast, useToast } from './Toast';
 
 interface Message {
@@ -19,12 +20,10 @@ const ChatPage = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { isDark } = useThemeStore();
   const { toasts, addToast, removeToast } = useToast();
+  const { characterName, fullBody, avatar } = useCharacterStore();
   
   // Mock LLM client for demo purposes
   const llmClient = new LLMClient({ apiKey: 'demo-key' });
-
-  // 角色信息
-  const [characterName] = useState('小雪');
   
   // 加载对话历史
   useEffect(() => {
@@ -179,7 +178,11 @@ const ChatPage = () => {
         {/* 角色立绘背景 */}
         <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none z-0">
           <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-            <div className="text-8xl">💖</div>
+            <img 
+              src={fullBody} 
+              alt={`${characterName}立绘`} 
+              className="max-h-full max-w-full object-contain"
+            />
           </div>
         </div>
         {/* 聊天消息区域 */}
@@ -187,8 +190,15 @@ const ChatPage = () => {
           {messages.map(message => (
             <div
               key={message.id}
-              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} mb-4`}
+              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} mb-4 items-start`}
             >
+              {message.role === 'assistant' && (
+                <img 
+                  src={avatar} 
+                  alt={characterName} 
+                  className="w-8 h-8 rounded-full mr-2 object-cover"
+                />
+              )}
               <div
                 className={`max-w-[80%] p-4 rounded-lg ${message.role === 'user' ? (isDark ? 'bg-gray-700 text-white' : 'bg-white text-gray-800') : (isDark ? 'bg-purple-900/60 text-purple-200' : 'bg-purple-100 text-purple-800')} transition-colors duration-200`}
               >
@@ -197,12 +207,24 @@ const ChatPage = () => {
                   {message.timestamp.toLocaleTimeString()}
                 </p>
               </div>
+              {message.role === 'user' && (
+                <img 
+                  src="/images/avatar_01.jpg" 
+                  alt="用户" 
+                  className="w-8 h-8 rounded-full ml-2 object-cover"
+                />
+              )}
             </div>
           ))}
 
           {/* 打字中状态 */}
           {isTyping && (
-            <div className="flex justify-start mb-4">
+            <div className="flex justify-start mb-4 items-start">
+              <img 
+                src={avatar} 
+                alt={characterName} 
+                className="w-8 h-8 rounded-full mr-2 object-cover"
+              />
               <div className={`${isDark ? 'bg-purple-900/60 text-purple-200' : 'bg-purple-100 text-purple-800'} p-4 rounded-lg max-w-[80%] transition-colors duration-200`}>
                 <div className="flex items-center space-x-1">
                   <span className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"></span>
@@ -215,7 +237,12 @@ const ChatPage = () => {
 
           {/* 流式输出 */}
           {isStreaming && streamingContent && (
-            <div className="flex justify-start mb-4">
+            <div className="flex justify-start mb-4 items-start">
+              <img 
+                src={avatar} 
+                alt={characterName} 
+                className="w-8 h-8 rounded-full mr-2 object-cover"
+              />
               <div className={`${isDark ? 'bg-purple-900/60 text-purple-200' : 'bg-purple-100 text-purple-800'} p-4 rounded-lg max-w-[80%] transition-colors duration-200`}>
                 <p className="whitespace-pre-wrap">{streamingContent}</p>
               </div>

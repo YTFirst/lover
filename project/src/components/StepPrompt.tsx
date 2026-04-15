@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { GlassCard } from './GlassCard';
+import { useCharacterStore } from '../store/characterStore';
 
 interface StepPromptProps {
   onNext: () => void;
@@ -8,7 +9,11 @@ interface StepPromptProps {
 }
 
 export const StepPrompt: React.FC<StepPromptProps> = ({ onNext, onBack, onPromptChange }) => {
-  const [prompt, setPrompt] = useState('');
+  const { prompt, setPrompt } = useCharacterStore();
+
+  useEffect(() => {
+    onPromptChange?.(prompt);
+  }, [prompt, onPromptChange]);
 
   const defaultTemplate = `你是小雪，一位温柔体贴的虚拟角色。你总是以友好和关爱的态度回应用户，展现出同理心和理解力。你的回答应该温暖、真诚，并且符合你作为虚拟伙伴的身份。
 

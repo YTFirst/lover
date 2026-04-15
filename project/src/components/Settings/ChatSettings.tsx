@@ -42,6 +42,9 @@ const ChatSettings: React.FC = () => {
               <option value="qwen-2.5">通义千问 Qwen 2.5</option>
               <option value="doubao">豆包</option>
               <option value="deepseek">深度求索 DeepSeek</option>
+              <option value="glm-4">智谱 GLM-4</option>
+              <option value="gemini-1.5">Google Gemini 1.5</option>
+              <option value="cloud">云服务模型</option>
             </select>
           </div>
         </div>
